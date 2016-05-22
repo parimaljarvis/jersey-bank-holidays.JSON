@@ -1,0 +1,1409 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+
+
+<style type="text/css">
+    /*! jQuery UI - v1.11.4 - 2016-05-22
+* http://jqueryui.com
+* Copyright jQuery Foundation and other contributors; Licensed MIT */
+
+.ui-widget {
+  font-family: Segoe UI, Arial, sans-serif;
+  font-size: 1.1em
+}
+
+.ui-widget .ui-widget {
+  font-size: 1em
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Segoe UI, Arial, sans-serif;
+  font-size: 1em
+}
+
+.ui-widget-content {
+  border: 1px solid #666;
+  background: #000 ;
+  color: #fff
+}
+
+.ui-widget-content a {
+  color: #fff
+}
+
+.ui-widget-header {
+  border: 1px solid #333;
+  background: #333 ;
+  color: #fff;
+  font-weight: bold
+}
+
+.ui-widget-header a {
+  color: #fff
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 1px solid #666;
+  background: #555 ;
+  font-weight: bold;
+  color: #eee
+}
+
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+  color: #eee;
+  text-decoration: none
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid #59b4d4;
+  background: #0078a3 ;
+  font-weight: bold;
+  color: #fff
+}
+
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+  color: #fff;
+  text-decoration: none
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid #ffaf0f;
+  background: #f58400 ;
+  font-weight: bold;
+  color: #fff
+}
+
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+  color: #fff;
+  text-decoration: none
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  border: 1px solid #ccc;
+  background: #eee  50% top repeat-x;
+  color: #2e7db2
+}
+
+.ui-state-highlight a,
+.ui-widget-content .ui-state-highlight a,
+.ui-widget-header .ui-state-highlight a {
+  color: #2e7db2
+}
+
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error {
+  border: 1px solid #ffb73d;
+  background: #ffc73d  50% 50% repeat-x;
+  color: #111
+}
+
+.ui-state-error a,
+.ui-widget-content .ui-state-error a,
+.ui-widget-header .ui-state-error a {
+  color: #111
+}
+
+.ui-state-error-text,
+.ui-widget-content .ui-state-error-text,
+.ui-widget-header .ui-state-error-text {
+  color: #111
+}
+
+.ui-priority-primary,
+.ui-widget-content .ui-priority-primary,
+.ui-widget-header .ui-priority-primary {
+  font-weight: bold
+}
+
+.ui-priority-secondary,
+.ui-widget-content .ui-priority-secondary,
+.ui-widget-header .ui-priority-secondary {
+  opacity: .7;
+  filter: Alpha(Opacity=70);
+  font-weight: normal
+}
+
+.ui-state-disabled,
+.ui-widget-content .ui-state-disabled,
+.ui-widget-header .ui-state-disabled {
+  opacity: .35;
+  filter: Alpha(Opacity=35);
+  background-image: none
+}
+
+.ui-state-disabled .ui-icon {
+  filter: Alpha(Opacity=35)
+}
+
+.ui-icon {
+  width: 16px;
+  height: 16px
+}
+
+.ui-icon,
+.ui-widget-content .ui-icon {
+}
+
+.ui-widget-header .ui-icon {
+}
+
+.ui-state-default .ui-icon {
+}
+
+.ui-state-hover .ui-icon,
+.ui-state-focus .ui-icon {
+}
+
+.ui-state-active .ui-icon {
+}
+
+.ui-state-highlight .ui-icon {
+}
+
+.ui-state-error .ui-icon,
+.ui-state-error-text .ui-icon {
+}
+
+.ui-icon-blank {
+  background-position: 16px 16px
+}
+
+.ui-icon-carat-1-n {
+  background-position: 0 0
+}
+
+.ui-icon-carat-1-ne {
+  background-position: -16px 0
+}
+
+.ui-icon-carat-1-e {
+  background-position: -32px 0
+}
+
+.ui-icon-carat-1-se {
+  background-position: -48px 0
+}
+
+.ui-icon-carat-1-s {
+  background-position: -64px 0
+}
+
+.ui-icon-carat-1-sw {
+  background-position: -80px 0
+}
+
+.ui-icon-carat-1-w {
+  background-position: -96px 0
+}
+
+.ui-icon-carat-1-nw {
+  background-position: -112px 0
+}
+
+.ui-icon-carat-2-n-s {
+  background-position: -128px 0
+}
+
+.ui-icon-carat-2-e-w {
+  background-position: -144px 0
+}
+
+.ui-icon-triangle-1-n {
+  background-position: 0 -16px
+}
+
+.ui-icon-triangle-1-ne {
+  background-position: -16px -16px
+}
+
+.ui-icon-triangle-1-e {
+  background-position: -32px -16px
+}
+
+.ui-icon-triangle-1-se {
+  background-position: -48px -16px
+}
+
+.ui-icon-triangle-1-s {
+  background-position: -64px -16px
+}
+
+.ui-icon-triangle-1-sw {
+  background-position: -80px -16px
+}
+
+.ui-icon-triangle-1-w {
+  background-position: -96px -16px
+}
+
+.ui-icon-triangle-1-nw {
+  background-position: -112px -16px
+}
+
+.ui-icon-triangle-2-n-s {
+  background-position: -128px -16px
+}
+
+.ui-icon-triangle-2-e-w {
+  background-position: -144px -16px
+}
+
+.ui-icon-arrow-1-n {
+  background-position: 0 -32px
+}
+
+.ui-icon-arrow-1-ne {
+  background-position: -16px -32px
+}
+
+.ui-icon-arrow-1-e {
+  background-position: -32px -32px
+}
+
+.ui-icon-arrow-1-se {
+  background-position: -48px -32px
+}
+
+.ui-icon-arrow-1-s {
+  background-position: -64px -32px
+}
+
+.ui-icon-arrow-1-sw {
+  background-position: -80px -32px
+}
+
+.ui-icon-arrow-1-w {
+  background-position: -96px -32px
+}
+
+.ui-icon-arrow-1-nw {
+  background-position: -112px -32px
+}
+
+.ui-icon-arrow-2-n-s {
+  background-position: -128px -32px
+}
+
+.ui-icon-arrow-2-ne-sw {
+  background-position: -144px -32px
+}
+
+.ui-icon-arrow-2-e-w {
+  background-position: -160px -32px
+}
+
+.ui-icon-arrow-2-se-nw {
+  background-position: -176px -32px
+}
+
+.ui-icon-arrowstop-1-n {
+  background-position: -192px -32px
+}
+
+.ui-icon-arrowstop-1-e {
+  background-position: -208px -32px
+}
+
+.ui-icon-arrowstop-1-s {
+  background-position: -224px -32px
+}
+
+.ui-icon-arrowstop-1-w {
+  background-position: -240px -32px
+}
+
+.ui-icon-arrowthick-1-n {
+  background-position: 0 -48px
+}
+
+.ui-icon-arrowthick-1-ne {
+  background-position: -16px -48px
+}
+
+.ui-icon-arrowthick-1-e {
+  background-position: -32px -48px
+}
+
+.ui-icon-arrowthick-1-se {
+  background-position: -48px -48px
+}
+
+.ui-icon-arrowthick-1-s {
+  background-position: -64px -48px
+}
+
+.ui-icon-arrowthick-1-sw {
+  background-position: -80px -48px
+}
+
+.ui-icon-arrowthick-1-w {
+  background-position: -96px -48px
+}
+
+.ui-icon-arrowthick-1-nw {
+  background-position: -112px -48px
+}
+
+.ui-icon-arrowthick-2-n-s {
+  background-position: -128px -48px
+}
+
+.ui-icon-arrowthick-2-ne-sw {
+  background-position: -144px -48px
+}
+
+.ui-icon-arrowthick-2-e-w {
+  background-position: -160px -48px
+}
+
+.ui-icon-arrowthick-2-se-nw {
+  background-position: -176px -48px
+}
+
+.ui-icon-arrowthickstop-1-n {
+  background-position: -192px -48px
+}
+
+.ui-icon-arrowthickstop-1-e {
+  background-position: -208px -48px
+}
+
+.ui-icon-arrowthickstop-1-s {
+  background-position: -224px -48px
+}
+
+.ui-icon-arrowthickstop-1-w {
+  background-position: -240px -48px
+}
+
+.ui-icon-arrowreturnthick-1-w {
+  background-position: 0 -64px
+}
+
+.ui-icon-arrowreturnthick-1-n {
+  background-position: -16px -64px
+}
+
+.ui-icon-arrowreturnthick-1-e {
+  background-position: -32px -64px
+}
+
+.ui-icon-arrowreturnthick-1-s {
+  background-position: -48px -64px
+}
+
+.ui-icon-arrowreturn-1-w {
+  background-position: -64px -64px
+}
+
+.ui-icon-arrowreturn-1-n {
+  background-position: -80px -64px
+}
+
+.ui-icon-arrowreturn-1-e {
+  background-position: -96px -64px
+}
+
+.ui-icon-arrowreturn-1-s {
+  background-position: -112px -64px
+}
+
+.ui-icon-arrowrefresh-1-w {
+  background-position: -128px -64px
+}
+
+.ui-icon-arrowrefresh-1-n {
+  background-position: -144px -64px
+}
+
+.ui-icon-arrowrefresh-1-e {
+  background-position: -160px -64px
+}
+
+.ui-icon-arrowrefresh-1-s {
+  background-position: -176px -64px
+}
+
+.ui-icon-arrow-4 {
+  background-position: 0 -80px
+}
+
+.ui-icon-arrow-4-diag {
+  background-position: -16px -80px
+}
+
+.ui-icon-extlink {
+  background-position: -32px -80px
+}
+
+.ui-icon-newwin {
+  background-position: -48px -80px
+}
+
+.ui-icon-refresh {
+  background-position: -64px -80px
+}
+
+.ui-icon-shuffle {
+  background-position: -80px -80px
+}
+
+.ui-icon-transfer-e-w {
+  background-position: -96px -80px
+}
+
+.ui-icon-transferthick-e-w {
+  background-position: -112px -80px
+}
+
+.ui-icon-folder-collapsed {
+  background-position: 0 -96px
+}
+
+.ui-icon-folder-open {
+  background-position: -16px -96px
+}
+
+.ui-icon-document {
+  background-position: -32px -96px
+}
+
+.ui-icon-document-b {
+  background-position: -48px -96px
+}
+
+.ui-icon-note {
+  background-position: -64px -96px
+}
+
+.ui-icon-mail-closed {
+  background-position: -80px -96px
+}
+
+.ui-icon-mail-open {
+  background-position: -96px -96px
+}
+
+.ui-icon-suitcase {
+  background-position: -112px -96px
+}
+
+.ui-icon-comment {
+  background-position: -128px -96px
+}
+
+.ui-icon-person {
+  background-position: -144px -96px
+}
+
+.ui-icon-print {
+  background-position: -160px -96px
+}
+
+.ui-icon-trash {
+  background-position: -176px -96px
+}
+
+.ui-icon-locked {
+  background-position: -192px -96px
+}
+
+.ui-icon-unlocked {
+  background-position: -208px -96px
+}
+
+.ui-icon-bookmark {
+  background-position: -224px -96px
+}
+
+.ui-icon-tag {
+  background-position: -240px -96px
+}
+
+.ui-icon-home {
+  background-position: 0 -112px
+}
+
+.ui-icon-flag {
+  background-position: -16px -112px
+}
+
+.ui-icon-calendar {
+  background-position: -32px -112px
+}
+
+.ui-icon-cart {
+  background-position: -48px -112px
+}
+
+.ui-icon-pencil {
+  background-position: -64px -112px
+}
+
+.ui-icon-clock {
+  background-position: -80px -112px
+}
+
+.ui-icon-disk {
+  background-position: -96px -112px
+}
+
+.ui-icon-calculator {
+  background-position: -112px -112px
+}
+
+.ui-icon-zoomin {
+  background-position: -128px -112px
+}
+
+.ui-icon-zoomout {
+  background-position: -144px -112px
+}
+
+.ui-icon-search {
+  background-position: -160px -112px
+}
+
+.ui-icon-wrench {
+  background-position: -176px -112px
+}
+
+.ui-icon-gear {
+  background-position: -192px -112px
+}
+
+.ui-icon-heart {
+  background-position: -208px -112px
+}
+
+.ui-icon-star {
+  background-position: -224px -112px
+}
+
+.ui-icon-link {
+  background-position: -240px -112px
+}
+
+.ui-icon-cancel {
+  background-position: 0 -128px
+}
+
+.ui-icon-plus {
+  background-position: -16px -128px
+}
+
+.ui-icon-plusthick {
+  background-position: -32px -128px
+}
+
+.ui-icon-minus {
+  background-position: -48px -128px
+}
+
+.ui-icon-minusthick {
+  background-position: -64px -128px
+}
+
+.ui-icon-close {
+  background-position: -80px -128px
+}
+
+.ui-icon-closethick {
+  background-position: -96px -128px
+}
+
+.ui-icon-key {
+  background-position: -112px -128px
+}
+
+.ui-icon-lightbulb {
+  background-position: -128px -128px
+}
+
+.ui-icon-scissors {
+  background-position: -144px -128px
+}
+
+.ui-icon-clipboard {
+  background-position: -160px -128px
+}
+
+.ui-icon-copy {
+  background-position: -176px -128px
+}
+
+.ui-icon-contact {
+  background-position: -192px -128px
+}
+
+.ui-icon-image {
+  background-position: -208px -128px
+}
+
+.ui-icon-video {
+  background-position: -224px -128px
+}
+
+.ui-icon-script {
+  background-position: -240px -128px
+}
+
+.ui-icon-alert {
+  background-position: 0 -144px
+}
+
+.ui-icon-info {
+  background-position: -16px -144px
+}
+
+.ui-icon-notice {
+  background-position: -32px -144px
+}
+
+.ui-icon-help {
+  background-position: -48px -144px
+}
+
+.ui-icon-check {
+  background-position: -64px -144px
+}
+
+.ui-icon-bullet {
+  background-position: -80px -144px
+}
+
+.ui-icon-radio-on {
+  background-position: -96px -144px
+}
+
+.ui-icon-radio-off {
+  background-position: -112px -144px
+}
+
+.ui-icon-pin-w {
+  background-position: -128px -144px
+}
+
+.ui-icon-pin-s {
+  background-position: -144px -144px
+}
+
+.ui-icon-play {
+  background-position: 0 -160px
+}
+
+.ui-icon-pause {
+  background-position: -16px -160px
+}
+
+.ui-icon-seek-next {
+  background-position: -32px -160px
+}
+
+.ui-icon-seek-prev {
+  background-position: -48px -160px
+}
+
+.ui-icon-seek-end {
+  background-position: -64px -160px
+}
+
+.ui-icon-seek-start {
+  background-position: -80px -160px
+}
+
+.ui-icon-seek-first {
+  background-position: -80px -160px
+}
+
+.ui-icon-stop {
+  background-position: -96px -160px
+}
+
+.ui-icon-eject {
+  background-position: -112px -160px
+}
+
+.ui-icon-volume-off {
+  background-position: -128px -160px
+}
+
+.ui-icon-volume-on {
+  background-position: -144px -160px
+}
+
+.ui-icon-power {
+  background-position: 0 -176px
+}
+
+.ui-icon-signal-diag {
+  background-position: -16px -176px
+}
+
+.ui-icon-signal {
+  background-position: -32px -176px
+}
+
+.ui-icon-battery-0 {
+  background-position: -48px -176px
+}
+
+.ui-icon-battery-1 {
+  background-position: -64px -176px
+}
+
+.ui-icon-battery-2 {
+  background-position: -80px -176px
+}
+
+.ui-icon-battery-3 {
+  background-position: -96px -176px
+}
+
+.ui-icon-circle-plus {
+  background-position: 0 -192px
+}
+
+.ui-icon-circle-minus {
+  background-position: -16px -192px
+}
+
+.ui-icon-circle-close {
+  background-position: -32px -192px
+}
+
+.ui-icon-circle-triangle-e {
+  background-position: -48px -192px
+}
+
+.ui-icon-circle-triangle-s {
+  background-position: -64px -192px
+}
+
+.ui-icon-circle-triangle-w {
+  background-position: -80px -192px
+}
+
+.ui-icon-circle-triangle-n {
+  background-position: -96px -192px
+}
+
+.ui-icon-circle-arrow-e {
+  background-position: -112px -192px
+}
+
+.ui-icon-circle-arrow-s {
+  background-position: -128px -192px
+}
+
+.ui-icon-circle-arrow-w {
+  background-position: -144px -192px
+}
+
+.ui-icon-circle-arrow-n {
+  background-position: -160px -192px
+}
+
+.ui-icon-circle-zoomin {
+  background-position: -176px -192px
+}
+
+.ui-icon-circle-zoomout {
+  background-position: -192px -192px
+}
+
+.ui-icon-circle-check {
+  background-position: -208px -192px
+}
+
+.ui-icon-circlesmall-plus {
+  background-position: 0 -208px
+}
+
+.ui-icon-circlesmall-minus {
+  background-position: -16px -208px
+}
+
+.ui-icon-circlesmall-close {
+  background-position: -32px -208px
+}
+
+.ui-icon-squaresmall-plus {
+  background-position: -48px -208px
+}
+
+.ui-icon-squaresmall-minus {
+  background-position: -64px -208px
+}
+
+.ui-icon-squaresmall-close {
+  background-position: -80px -208px
+}
+
+.ui-icon-grip-dotted-vertical {
+  background-position: 0 -224px
+}
+
+.ui-icon-grip-dotted-horizontal {
+  background-position: -16px -224px
+}
+
+.ui-icon-grip-solid-vertical {
+  background-position: -32px -224px
+}
+
+.ui-icon-grip-solid-horizontal {
+  background-position: -48px -224px
+}
+
+.ui-icon-gripsmall-diagonal-se {
+  background-position: -64px -224px
+}
+
+.ui-icon-grip-diagonal-se {
+  background-position: -80px -224px
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+  border-top-left-radius: 6px
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+  border-top-right-radius: 6px
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+  border-bottom-left-radius: 6px
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+  border-bottom-right-radius: 6px
+}
+
+.ui-widget-overlay {
+  background: #5c5c5c;
+  opacity: .8;
+  filter: Alpha(Opacity=80)
+}
+
+.ui-widget-shadow {
+  margin: -7px 0 0 -7px;
+  padding: 7px;
+  background: #ccc;
+  opacity: .6;
+  filter: Alpha(Opacity=60);
+  border-radius: 8px
+}
+
+
+body {
+  font-family: Segoe UI, Arial, sans-serif;
+  font-size: 1em
+}
+
+textarea {
+  outline: none;
+  width: 99%;
+}
+
+  </style>
+  <title>jersey-bank-holidays.json by s1m0nj</title>
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+"use strict";
+var jerseyBankHolidays;
+
+function transform() {
+  //We assume Jersey has the same bank holidays as UK with an extra Liberation day.
+  // Liberation Day (9th May) is to be observed as a public holiday if it is a weekday or Saturday.  https://www.jerseylaw.je/laws/enacted/pages/RO-096-2010.aspx 
+
+  try {
+    var holiday;
+    var liberationDay;
+    var liberationDayHoliday;
+    var SUNDAY = 0;
+    var year;
+    var allBankHolidays = jQuery.parseJSON(jQuery('#ukBankHolidayJson').val());
+    jerseyBankHolidays = allBankHolidays['england-and-wales'].events;
+
+    for (var i = 0; i < jerseyBankHolidays.length; i++) {
+
+      holiday = jerseyBankHolidays[i];
+      delete holiday.bunting; //get rid of bunting
+      //after every "Early May bank holiday" add a bank holiday except if it's sunday
+      if (holiday.title != "Early May bank holiday") {
+        continue;
+      }
+
+      year = new Date(holiday.date).getFullYear();
+      liberationDay = new Date(year + '-05-09');
+      if (liberationDay.getDay() == SUNDAY) {
+        continue;
+      }
+
+      liberationDayHoliday = {
+        "title": "Liberation Day",
+        "date": year + "-05-09",
+        "notes": ""
+      };
+
+      jerseyBankHolidays.splice(i + 1, 0, liberationDayHoliday);
+    }
+  } catch (e) {
+    displayError(e, 'Unable to transform source JSON');
+  }
+  displayResult();
+}
+
+
+function displayResult() {
+  try {
+    var minify = $("#minify").is(":checked");
+    var text = minify ? JSON.stringify(jerseyBankHolidays) : JSON.stringify(jerseyBankHolidays, null, "\t");
+    jQuery('#jerseyBankHolidayJson').val(text);
+  } catch (e) {
+    displayError(e, 'Unable to show transformed JSON');
+  }
+}
+
+function displayError(e, message) {
+  alert('Error: ' + message + ' : ' + e.message);
+}
+
+function testDate() {
+
+  var holiday;
+  var result = $("#testResult");
+  var dateControl = $("#date");
+  var date = dateControl.datepicker('getDate');
+  if (date) {
+    debugger;
+    var testDate = date.toStringYYYYMMDD();
+
+    for (var i = 0; i < jerseyBankHolidays.length; i++) {
+      holiday = jerseyBankHolidays[i];
+      if (holiday.date == testDate) {
+        result.html(holiday.date + " is " + holiday.title);
+        return;
+      }
+    }
+    debugger;
+    result.html("Is not a public holiday");
+  } else {
+    result.html("");
+  }
+
+}
+
+
+Date.prototype.toStringYYYYMMDD = function() {
+  var yyyy = this.getFullYear().toString();
+  var mm = (this.getMonth() + 1).toString(); // getMonth() is zero-based
+  var dd = this.getDate().toString();
+  return yyyy + '-' + (mm[1] ? mm : "0" + mm[0]) + '-' + (dd[1] ? dd : "0" + dd[0]); // padding
+};
+
+//Setup
+var control = $("#date");
+control.datepicker({ dateFormat: 'dd-mm-yy' });
+control.change(testDate);
+
+$("#minify").change(displayResult);
+
+$("#convert").click(transform);
+transform();
+
+
+
+//}
+
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <body>
+  <h2 class="ui-widget">Convert 'UK Bank holiday JSON' to 'Jersey Bank holiday JSON'</h2>
+  <p class="ui-widget">Source: UK Bank Holiday JSON (<a target='_blacnk' href='https://www.gov.uk/bank-holidays.json'>https://www.gov.uk/bank-holidays.json</a>):</p>
+
+
+
+  <textarea class="ui-widget" id="ukBankHolidayJson" name="ukBankHolidayJson" rows="20" placeholder="{
+   ' england-and-wales ':{
+      'division ':'england-and-wales ',
+      'events ':[
+         {
+            'title ':'New Year’s Day ',
+            'date ':'2012-01-02 ',
+            'notes ':'Substitute day ',
+            'bunting ':true
+         },
+         {
+            'title ':'Good Friday ',
+            'date ':'2012-04-06 ',
+            'notes ':' ',
+            'bunting ':false
+         },
+         {
+            'title ':'Easter Monday ',
+            'date ':'2012-04-09 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Early May bank holiday ',
+            'date ':'2012-05-07 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Spring bank holiday ',
+            'date ':'2012-06-04 ',
+            'notes ':'Substitute day ',
+            'bunting ':true
+         },
+         {
+            'title ':'Queen’s Diamond Jubilee ',
+            'date ':'2012-06-05 ',
+            'notes ':'Extra bank holiday ',
+            'bunting ':true
+         },
+         {
+            'title ':'Summer bank holiday ',
+            'date ':'2012-08-27 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Christmas Day ',
+            'date ':'2012-12-25 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Boxing Day ',
+            'date ':'2012-12-26 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'New Year’s Day ',
+            'date ':'2013-01-01 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Good Friday ',
+            'date ':'2013-03-29 ',
+            'notes ':' ',
+            'bunting ':false
+         },
+         {
+            'title ':'Easter Monday ',
+            'date ':'2013-04-01 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Early May bank holiday ',
+            'date ':'2013-05-06 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Spring bank holiday ',
+            'date ':'2013-05-27 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Summer bank holiday ',
+            'date ':'2013-08-26 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Christmas Day ',
+            'date ':'2013-12-25 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Boxing Day ',
+            'date ':'2013-12-26 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'New Year’s Day ',
+            'date ':'2014-01-01 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Good Friday ',
+            'date ':'2014-04-18 ',
+            'notes ':' ',
+            'bunting ':false
+         },
+         {
+            'title ':'Easter Monday ',
+            'date ':'2014-04-21 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Early May bank holiday ',
+            'date ':'2014-05-05 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Spring bank holiday ',
+            'date ':'2014-05-26 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Summer bank holiday ',
+            'date ':'2014-08-25 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Christmas Day ',
+            'date ':'2014-12-25 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Boxing Day ',
+            'date ':'2014-12-26 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'New Year’s Day ',
+            'date ':'2015-01-01 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Good Friday ',
+            'date ':'2015-04-03 ',
+            'notes ':' ',
+            'bunting ':false
+         },
+         {
+            'title ':'Easter Monday ',
+            'date ':'2015-04-06 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Early May bank holiday ',
+            'date ':'2015-05-04 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Spring bank holiday ',
+            'date ':'2015-05-25 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Summer bank holiday ',
+            'date ':'2015-08-31 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Christmas Day ',
+            'date ':'2015-12-25 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Boxing Day ',
+            'date ':'2015-12-28 ',
+            'notes ':'Substitute day ',
+            'bunting ':true
+         },
+         {
+            'title ':'New Year’s Day ',
+            'date ':'2016-01-01 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Good Friday ',
+            'date ':'2016-03-25 ',
+            'notes ':' ',
+            'bunting ':false
+         },
+         {
+            'title ':'Easter Monday ',
+            'date ':'2016-03-28 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Early May bank holiday ',
+            'date ':'2016-05-02 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Spring bank holiday ',
+            'date ':'2016-05-30 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Summer bank holiday ',
+            'date ':'2016-08-29 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Boxing Day ',
+            'date ':'2016-12-26 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Christmas Day ',
+            'date ':'2016-12-27 ',
+            'notes ':'Substitute day ',
+            'bunting ':true
+         },
+         {
+            'title ':'New Year’s Day ',
+            'date ':'2017-01-02 ',
+            'notes ':'Substitute day ',
+            'bunting ':true
+         },
+         {
+            'title ':'Good Friday ',
+            'date ':'2017-04-14 ',
+            'notes ':' ',
+            'bunting ':false
+         },
+         {
+            'title ':'Easter Monday ',
+            'date ':'2017-04-17 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Early May bank holiday ',
+            'date ':'2017-05-01 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Spring bank holiday ',
+            'date ':'2017-05-29 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Summer bank holiday ',
+            'date ':'2017-08-28 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Christmas Day ',
+            'date ':'2017-12-25 ',
+            'notes ':' ',
+            'bunting ':true
+         },
+         {
+            'title ':'Boxing Day ',
+            'date ':'2017-12-26 ',
+            'notes ':' ',
+            'bunting ':true
+         }
+      ]
+   }
+}"></textarea>
+
+  
+  <button name="convert" id="convert">Convert</button>
+  <input type="checkbox" id="minify">Minify
+
+  <p class="ui-widget">Transformed Jersey Bank Holiday JSON:</p>
+  <div class="ui-widget" id="outputFormatted">
+    <textarea id="jerseyBankHolidayJson" name="jerseyBankHolidayJson" rows="20"></textarea>
+  </div>
+
+  <p class="ui-widget">Test Date:
+    <input class="ui-widget" type="text" name="date" id="date"> Result: <span class="ui-widget" id='testResult'></span></p>
+
+<script>
+    //Use JSONP to load UK JSON, use this call back via yahoo's
+    function jsoncallback(json) {
+      try {
+      	debugger;
+        var source = json.query.results.body; //walk though yahoo call back
+        var o = jQuery.parseJSON(source); //convert to object
+        $('#ukBankHolidayJson').val(JSON.stringify(o, null, "\t"));
+      } catch (e) {
+        alert('Error: Unable to parse and format Source UK JSON : ' + e.message);
+      }
+    };
+
+  </script>
+  <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D"www.gov.uk/bank-holidays.json"&format=json&callback=jsoncallback'></script> 
+</body>
+</html>
+
